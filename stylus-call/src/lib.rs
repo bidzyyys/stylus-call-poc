@@ -33,7 +33,6 @@ sol_interface! {
     interface SolidityReceiver {
         #[allow(missing_docs)]
         function handle(
-            address operator,
             bytes calldata data
         ) external returns (bytes4);
     }
@@ -51,10 +50,9 @@ impl CallPoC {
     pub fn dummy(&mut self, receiver: Address, data: Bytes) -> Result<FixedBytes<4>, Error> {
         let receiver = SolidityReceiver::new(receiver);
         let call = Call::new_in(self);
-        let from = msg::sender();
         let data = data.to_vec().into();
         console!("Calldata : {:x?}", data);
-        let result = receiver.handle(call, from, data);
+        let result = receiver.handle(call, data);
         match result {
             Ok(retval) => {
                 console!("It works: {:?}", retval);
