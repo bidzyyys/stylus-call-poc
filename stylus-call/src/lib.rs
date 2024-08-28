@@ -4,7 +4,7 @@ extern crate alloc;
 #[global_allocator]
 static ALLOC: mini_alloc::MiniAlloc = mini_alloc::MiniAlloc::INIT;
 
-use alloy_primitives::{Address, FixedBytes, U256};
+use alloy_primitives::{Address, FixedBytes};
 use alloy_sol_types::sol;
 use stylus_sdk::{
     abi::Bytes,
@@ -35,7 +35,6 @@ sol_interface! {
         function handle(
             address operator,
             address from,
-            uint256 token_id,
             bytes calldata data
         ) external returns (bytes4);
     }
@@ -54,7 +53,6 @@ impl CallPoC {
         &mut self,
         receiver: Address,
         to: Address,
-        token_id: U256,
         data: Bytes,
     ) -> Result<FixedBytes<4>, Error> {
         let receiver = SolidityReceiver::new(receiver);
@@ -62,7 +60,7 @@ impl CallPoC {
         let from = msg::sender();
         let data = data.to_vec().into();
         console!("Calldata : {:x?}", data);
-        let result = receiver.handle(call, from, to, token_id, data);
+        let result = receiver.handle(call, from, to, data);
         match result {
             Ok(retval) => {
                 console!("It works: {:?}", retval);
