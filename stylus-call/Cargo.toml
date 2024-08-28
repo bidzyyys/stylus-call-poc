@@ -7,7 +7,7 @@ keywords = ["arbitrum, ethereum", "stylus", "evm", "alloy"]
 description = "Playground for experiments with calling another contracts in Stylus."
 
 [dependencies]
-stylus-sdk = { git = "https://github.com/OffchainLabs/stylus-sdk-rs", branch = "hotfix-0.5.3", default-features = false }
+stylus-sdk = { git = "https://github.com/OffchainLabs/stylus-sdk-rs", branch = "hotfix-0.5.3", features = ["debug"] }
 stylus-proc = { git = "https://github.com/OffchainLabs/stylus-sdk-rs", branch = "hotfix-0.5.3", default-features = false }
 alloy-primitives = { version = "=0.7.6", default-features = false }
 alloy-sol-types = { version = "=0.7.6", default-features = false }
