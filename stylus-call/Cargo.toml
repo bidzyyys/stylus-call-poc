@@ -1,0 +1,33 @@
+[package]
+name = "stylus-call"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+keywords = ["arbitrum, ethereum", "stylus", "evm", "alloy"]
+description = "Playground for experiments with calling another contracts in Stylus."
+
+[dependencies]
+stylus-sdk = { git = "https://github.com/OffchainLabs/stylus-sdk-rs", branch = "hotfix-0.5.3", default-features = false }
+stylus-proc = { git = "https://github.com/OffchainLabs/stylus-sdk-rs", branch = "hotfix-0.5.3", default-features = false }
+alloy-primitives = { version = "=0.7.6", default-features = false }
+alloy-sol-types = { version = "=0.7.6", default-features = false }
+
+mini-alloc = "0.4.2"
+
+[features]
+export-abi = ["stylus-sdk/export-abi"]
+debug = ["stylus-sdk/debug"]
+
+[[bin]]
+name = "stylus-strings-poc"
+path = "src/main.rs"
+
+[lib]
+crate-type = ["lib", "cdylib"]
+
+[profile.release]
+codegen-units = 1
+strip = true
+lto = true
+panic = "abort"
+opt-level = "s"
