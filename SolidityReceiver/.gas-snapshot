@@ -1,2 +1,0 @@
-SolidityReceiverTest:testFuzz_Handle(bytes) (runs: 256, μ: 11410, ~: 11164)
-SolidityReceiverTest:test_Handle() (gas: 3095)

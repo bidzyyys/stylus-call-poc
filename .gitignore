@@ -4,6 +4,7 @@
 
 
 # Solidity
+**/.gas-snapshot
 
 ## Compiler files
 **/cache/
