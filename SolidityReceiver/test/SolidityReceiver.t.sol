@@ -15,8 +15,8 @@ contract SolidityReceiverTest is Test {
         assertEq(uint8(1 + 1), uint8(2));
     }
 
-    function testFuzz_Handle(address from, address to, uint256 tokenId, bytes memory data) public {
-        receiver.handle(from, to, tokenId, data);
+    function testFuzz_Handle(address from, address to, uint256 tokenId) public {
+        receiver.handle(from, to, tokenId);
         assertEq(uint8(1 + 1), uint8(2));
     }
 }
