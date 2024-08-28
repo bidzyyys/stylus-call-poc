@@ -49,8 +49,8 @@ Save `deployed code at address:` address as it will be needed in contracts inter
 
 ## Interact with the smart contracts
 ```sh
-cast send --private-key <private-key> --rpc-url <rpc-url> <stylus-contract-address> "dummy(address,address,bytes)(bytes4)" <solidity-contract-address> <random-address> <random-bytes>
-# e.g. cast send --private-key <private-key> --rpc-url http://localhost:8547 0xdc64a140aa3e981100a9beca4e685f962f0cf6c9  "dummy(address,address,bytes)(bytes4)" 0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9 0x5fc8d32690cc91d4c39d9d3abcbd16989f875707 0xdeadbeef
+cast send --private-key <private-key> --rpc-url <rpc-url> <stylus-contract-address> "dummy(address,bytes)(bytes4)" <solidity-contract-address> <random-bytes>
+# e.g. cast send --private-key <private-key> --rpc-url http://localhost:8547 0x2279b7a0a67db372996a5fab50d91eaa73d2ebe6 "dummy(address,bytes)(bytes4)" 0xa513E6E4b8f2a923D98304ec87F64353C4D5C853 0xdeadbeef
 ```
 
 
